@@ -1,0 +1,14 @@
+
+config:
+    name: "demo testsuite"
+    variables:
+        device_sn: "XYZ"
+    base_url: "http://127.0.0.1:5000"
+
+testcases:
+-
+    name: 测试登录登录接口
+    testcase: testcases/test_login.yml
+    parameters:
+        #title-account-password-responseCode-isSuccess: ${P(data/account.csv)}
+       title-account-password-responseCode-isSuccess: ${get_acount()}

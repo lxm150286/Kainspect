@@ -1,0 +1,15 @@
+config:
+    name: "demo testsuite"
+    variables:
+        device_sn: "XYZ"
+    base_url: "http://127.0.0.1:5000"
+
+
+testcases:
+-
+    name: 测试保存门店
+    testcase: testcases/test_savestoreplan.yml
+    parameters:
+       prdDisplayList-title: ${prdDisplayList()}
+       zengTeChenList-title: ${get_zengTeChenList()}
+       title-prdId-prdName-prdPrice-suitPrice-groupBuyPrice-suitNum-singleNum-groupBuyNum: ${get_orderParams()}

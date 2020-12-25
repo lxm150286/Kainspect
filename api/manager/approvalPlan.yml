@@ -1,0 +1,22 @@
+config:
+     name: 客户经理指定主任审批
+     variables: {}
+     export:
+       - planId
+name: 客户经理指定主任计划审批
+request:
+  headers: ${get_request_params(get_headers)} #引用钩子函数定义的函数
+  json:
+    token: ${token}
+    planDate: ${get_currenttemp()}
+    channel: ${channel}
+    applicantId: ${applicantId}
+  method: POST
+  params:
+    ${get_request_params(get_params)}
+  url: ${ENV(a_host)}/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList
+extract:
+   planId: content.data.0.planId
+
+
+

@@ -1,0 +1,12 @@
+name: 客户经理指定主任某条计划进行审批
+request:
+  headers: ${get_request_params(get_headers)} #引用钩子函数定义的函数
+  json:
+    token: ${token}
+    planId: ${planId}
+
+  method: POST
+  params:
+    ${get_request_params(get_params)}
+  url: ${ENV(a_host)}/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanDetail
+

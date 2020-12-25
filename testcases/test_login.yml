@@ -1,0 +1,28 @@
+config:
+    name: 登录接口用例
+    variables:
+     - responseCode: 0
+     - isSuccess: True
+    account: ${account}
+    password: ${password}
+
+
+    base_url: https://tmallapi.bluemoon.com.cn
+    verify: false
+    export:
+      - token
+teststeps:
+-   name: 登录接口
+    api: api/common/login.yml
+    extract:
+      token: content.token
+    validate:
+    -   eq:
+        - content.responseCode
+        - ${responseCode}
+    - eq:
+          - content.isSuccess
+          - ${isSuccess}
+
+-   name: 获取用户菜单权限
+    api: api/common/menupermissions.yml

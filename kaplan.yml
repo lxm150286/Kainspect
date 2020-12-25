@@ -1,0 +1,549 @@
+config:
+    name: testcase description
+    variables: {}
+    verify: false
+teststeps:
+-   name: 登录接口
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)
+        json:
+            account: '54260644'
+            deviceNum: e8d2df7e3b88b1e30fbdbd8c05fdbd7c
+            password: p7Gx4TKqh5quPqjTlU+csw==
+        method: POST
+        params:
+            client: ios
+            cuid: FECB9336-93F7-4DD7-A9CA-1EF7517076EE
+            format: json
+            sign: 61a921a3c390fb4204279429873da264
+            source: sfa
+            time: '1605787062000'
+            version: 2.5.1
+        url: https://tmallapi.bluemoon.com.cn/bmcrm-control/user/ssoLogin
+    #参数关联
+    extract:
+        token: content.token
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - content.responseMsg
+        - 登陆成功
+    -   eq:
+        - content.token
+        - ${token}
+
+
+-   name: 获取用户菜单权限
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)
+        json:
+            token: ${token}
+        method: POST
+        params:
+            client: ios
+            cuid: FECB9336-93F7-4DD7-A9CA-1EF7517076EE
+            format: json
+            sign: 61a921a3c390fb4204279429873da264
+            source: sfa
+            time: '1605787062000'
+            version: 2.5.1
+        url: https://tmallapi.bluemoon.com.cn/bmcrm-control/user/getAppRights
+    #提取时间戳
+    extract:
+        current_time: content.currDate
+    validate:
+    -   eq:
+        - status_code
+        - 200
+
+    -   eq:
+        - content.currDate
+        - ${current_time}
+    -   eq:
+        - content.responseMsg
+        - 获取权限成功
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.isSuccess
+        - true
+-   name: /bmcrm-control/message/getMustReadInfoList
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)
+        json:
+            token: ${token}
+        method: POST
+        params:
+            client: ios
+            cuid: FECB9336-93F7-4DD7-A9CA-1EF7517076EE
+            format: json
+            sign: 61a921a3c390fb4204279429873da264
+            source: sfa
+            time: '1605787062000'
+            version: 2.5.1
+        url: https://tmallapi.bluemoon.com.cn/bmcrm-control/message/getMustReadInfoList
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseMsg
+        - 请求成功
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.isSuccess
+        - true
+
+-   name: /bmcrm-control/user/getAppRightsNotReadCount
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)
+        json:
+            token: ${token}
+        method: POST
+        params:
+            client: ios
+            cuid: FECB9336-93F7-4DD7-A9CA-1EF7517076EE
+            format: json
+            sign: 611c8379c46796b4b6329cca433a8018
+            source: sfa
+            time: '1605787064000'
+            version: 2.5.1
+        url: https://tmallapi.bluemoon.com.cn/bmcrm-control/user/getAppRightsNotReadCount
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseMsg
+        - 请求成功
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.isSuccess
+        - true
+
+
+
+-   name: 查询工作计划
+    request:
+        headers:
+            Access-Control-Request-Headers: content-type
+            Access-Control-Request-Method: POST
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        method: OPTIONS
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: dd713cabfc74e42463b6b1b67fb2b058
+            source: sfa
+            time: '1605787091321' #获取当前时间戳
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList
+    validate:
+    -   eq:
+        - status_code
+        - 204
+
+
+
+-   name: /bmcrm-sfa-refactoring/openapi/common/queryDictList
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            dictTypeId: KA_CHECKIN_DISPLAY_TYPE
+            token: ${token}
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: d90afd1be1ca4cfaed19bec6587bed2d
+            source: sfa
+            time: '1605787102672'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/common/queryDictList
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.responseMsg
+        - 成功
+    -   eq:
+        - content.isSuccess
+        - true
+-   name: /bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            token: ${token}
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: 914521324ed402079663455acc472d80
+            source: sfa
+            time: '1605787102674'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.responseMsg
+        - 成功
+    -   eq:
+        - content.isSuccess
+        - true
+-   name: /bmcrm-control/myStore/getAllStoreListByUserId
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            keyWork: ''
+            pageFlag: mystore
+            pageIndex: 0
+            pageSize: 10
+            planDate: 1605787106530
+            token: ${token}
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: eef00b6431ba49e775572486f0d8c82a
+            source: sfa
+            time: '1605787106552'
+            version: 1.0.0
+        url: https://tmallapi.bluemoon.com.cn/bmcrm-control/myStore/getAllStoreListByUserId
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseMsg
+        - 请求成功
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.isSuccess
+        - true
+
+-   name: /bmcrm-control/common/getnNearbyStoreListByParams
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            gpsLatitude: 23.12919
+            gpsLongitude: 113.40359
+            keyword: ''
+            token: ${token}
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: 4685dd785a4f9361023f9e4bb24c30f6
+            source: sfa
+            time: '1605787106805'
+            version: 1.0.0
+        url: https://tmallapi.bluemoon.com.cn/bmcrm-control/common/getnNearbyStoreListByParams
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseMsg
+        - 请求成功
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.isSuccess
+        - true
+
+-   name: /bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList
+    request:
+        headers:
+            Access-Control-Request-Headers: content-type
+            Access-Control-Request-Method: POST
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        method: OPTIONS
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: 525daf3b97c0ec1447871bdc414d89c2
+            source: sfa
+            time: '1605787123103'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList
+    validate:
+    -   eq:
+        - status_code
+        - 204
+-   name: /bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    request:
+        headers:
+            Access-Control-Request-Headers: content-type
+            Access-Control-Request-Method: POST
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        method: OPTIONS
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: caab48c39cf154da37408a9ee33ecf76
+            source: sfa
+            time: '1605787123120'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    validate:
+    -   eq:
+        - status_code
+        - 204
+-   name: /bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            categoryExtendCode: null
+            token: ${token}
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: caab48c39cf154da37408a9ee33ecf76
+            source: sfa
+            time: '1605787123120'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.responseMsg
+        - 成功
+    -   eq:
+        - content.isSuccess
+        - true
+-   name: /bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            token: ${token}
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: 525daf3b97c0ec1447871bdc414d89c2
+            source: sfa
+            time: '1605787123103'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.responseMsg
+        - 成功
+    -   eq:
+        - content.isSuccess
+        - true
+-   name: /bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    request:
+        headers:
+            Access-Control-Request-Headers: content-type
+            Access-Control-Request-Method: POST
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        method: OPTIONS
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: 1367a93aa86474c3b84291a777f2eb61
+            source: sfa
+            time: '1605787127144'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    validate:
+    -   eq:
+        - status_code
+        - 204
+-   name: /bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    request:
+        headers:
+            Content-Type: application/json
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            categoryExtendCode: DL070144
+            token: ${token}
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: 1367a93aa86474c3b84291a777f2eb61
+            source: sfa
+            time: '1605787127144'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend
+    validate:
+    -   eq:
+        - status_code
+        - 200
+    -   eq:
+        - headers.Content-Type
+        - application/json;charset=UTF-8
+    -   eq:
+        - content.responseCode
+        - 0
+    -   eq:
+        - content.responseMsg
+        - 成功
+    -   eq:
+        - content.isSuccess
+        - true
+-   name: 保存门店计划
+    request:
+        headers:
+            Access-Control-Request-Headers: content-type
+            Access-Control-Request-Method: POST
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        json:
+            token: ${token}
+            pageType: ''
+            planType: 1
+            planDate: 1605888000000
+            startTime: 112200981
+            endTime: 112200981
+            storeName: 广州-昆仑好客-增城仙村永达店
+            storeNo: 0002662482
+            storePlanDetail:
+                distributionList: [ ]
+                orderList: [ ]
+                prdDisplayList:
+                    - depthNum: 35
+                      prdId: '10000014'
+                      prdName: 500g洁净瓶-自然
+                      widthNum: 23
+                    - depthNum: 345
+                      prdId: '10001394'
+                      prdName: 500g芦荟袋(新)
+                      widthNum: 345
+                zengTeChenList: [ ]
+        method: POST
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: 51fb53590cf05109963ed9de4112fe70
+            source: sfa
+            time: '1605787181294'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/saveStorePlan
+    validate:
+    -   eq:
+        - responseCode
+        - 0
+
+-   name: 查询门店计划
+    request:
+        headers:
+            Access-Control-Request-Headers: content-type
+            Access-Control-Request-Method: POST
+            User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15
+                (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa
+        method: OPTIONS
+        params:
+            client: wx
+            cuid: '123'
+            format: json
+            sign: f1094ae897a966b7b44b683983c27691
+            source: sfa
+            time: '1605787181611'
+            version: 1.0.0
+        url: https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList
+    validate:
+    -   eq:
+        - status_code
+        - 0

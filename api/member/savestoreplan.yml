@@ -1,0 +1,33 @@
+name: 测试保存门店计划
+
+request:
+    headers: ${get_request_params(get_headers)}
+    json:
+        token: ${token}
+        planDate: ${get_currenttemp()}
+        startTime: ${get_currenttemp()}
+        endTime: ${get_currenttemp()}
+        pageType: ''
+        planType: 1
+        storeName: 广州-昆仑好客-增城仙村永达店
+        storeNo: 0002662482
+        storePlanDetail:
+            distributionList: [ ]#补分销列表
+            orderList:
+             - "prdId": ${prdId}
+               "prdName": ${prdName}
+               "prdPrice": ${prdPrice}
+               "suitPrice": ${suitPrice}
+               "groupBuyPrice": ${groupBuyPrice}
+               "suitNum": ${suitNum}
+               "singleNum": ${singleNum}
+               "groupBuyNum": ${groupBuyNum}
+
+            prdDisplayList: ${prdDisplayList} #扩排面列表
+            zengTeChenList: ${zengTeChenList}  #增特陈列表
+
+    method: POST
+    params:
+        ${get_request_params(get_params)}
+    url: ${a_url}/bmcrm-sfa-refactoring/openapi/kaCheckin/saveStorePlan
+

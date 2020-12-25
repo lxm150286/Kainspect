@@ -1,0 +1,10 @@
+name: 获取用户菜单权限
+request:
+    headers: ${get_request_params(get_headers)}
+    json:
+        token: ${token}
+    method: POST
+    params:
+        ${get_request_params(get_params)}
+    url: https://tmallapi.bluemoon.com.cn/bmcrm-control/user/getAppRights
+

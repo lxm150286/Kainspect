@@ -1,0 +1,1406 @@
+{
+    "config": {
+        "name": "testcase description",
+        "variables": {}
+    },
+    "teststeps": [
+        {
+            "name": "/bmcrm-control/user/ssoLogin",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/user/ssoLogin",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "61a921a3c390fb4204279429873da264",
+                    "time": "1605787062000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "account": "54260644",
+                    "deviceNum": "e8d2df7e3b88b1e30fbdbd8c05fdbd7c",
+                    "password": "p7Gx4TKqh5quPqjTlU+csw=="
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "登陆成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.token",
+                        "8907ba76ceaffda4b7ded9623d00bd16"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/message/getNewMessage",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/message/getNewMessage",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "61a921a3c390fb4204279429873da264",
+                    "time": "1605787062000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msgContent",
+                        ""
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msgId",
+                        ""
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.pushTime",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "请求成功"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/user/getAppRights",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/user/getAppRights",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "61a921a3c390fb4204279429873da264",
+                    "time": "1605787062000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.currDate",
+                        1605787063120
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "获取权限成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/message/getMustReadInfoList",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/message/getMustReadInfoList",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "61a921a3c390fb4204279429873da264",
+                    "time": "1605787062000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "请求成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/user/getAppRights",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/user/getAppRights",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "61a921a3c390fb4204279429873da264",
+                    "time": "1605787062000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.currDate",
+                        1605787063161
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "获取权限成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/message/getNewMessage",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/message/getNewMessage",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "61a921a3c390fb4204279429873da264",
+                    "time": "1605787062000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msgContent",
+                        ""
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.msgId",
+                        ""
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.pushTime",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "请求成功"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/user/getAppRightsNotReadCount",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/user/getAppRightsNotReadCount",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "611c8379c46796b4b6329cca433a8018",
+                    "time": "1605787064000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "请求成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.currDate",
+                        1605787066923
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/user/getAppRightsNotReadCount",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/user/getAppRightsNotReadCount",
+                "params": {
+                    "client": "ios",
+                    "cuid": "FECB9336-93F7-4DD7-A9CA-1EF7517076EE",
+                    "format": "json",
+                    "sign": "08c1ebb93332fbb5da25c96d86388446",
+                    "time": "1605787065000",
+                    "version": "2.5.1",
+                    "source": "sfa"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "BlueMoonSFA/2.5.1 (iPhone; iOS 11.4.1; Scale/3.00)"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "请求成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.currDate",
+                        1605787067000
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/FE/sfaVue/businessWorkPlan",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/FE/sfaVue/businessWorkPlan",
+                "params": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                },
+                "method": "GET",
+                "headers": {
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "text/html"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787091321",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "dd713cabfc74e42463b6b1b67fb2b058"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787091321",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "dd713cabfc74e42463b6b1b67fb2b058"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16",
+                    "planDate": 1605715200000,
+                    "channel": 1,
+                    "applicantId": null
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/common/queryDictList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/common/queryDictList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787102672",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "d90afd1be1ca4cfaed19bec6587bed2d"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787102674",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "914521324ed402079663455acc472d80"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/common/queryDictList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/common/queryDictList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787102672",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "d90afd1be1ca4cfaed19bec6587bed2d"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16",
+                    "dictTypeId": "KA_CHECKIN_DISPLAY_TYPE"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787102674",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "914521324ed402079663455acc472d80"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/myStore/getAllStoreListByUserId",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/myStore/getAllStoreListByUserId",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787106552",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "eef00b6431ba49e775572486f0d8c82a"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "keyWork": "",
+                    "pageFlag": "mystore",
+                    "planDate": 1605787106530,
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16",
+                    "pageSize": 10,
+                    "pageIndex": 0
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "请求成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.currDate",
+                        1605787106571
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-control/common/getnNearbyStoreListByParams",
+            "request": {
+                "url": "https://tmallapi.bluemoon.com.cn/bmcrm-control/common/getnNearbyStoreListByParams",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787106805",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "4685dd785a4f9361023f9e4bb24c30f6"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16",
+                    "gpsLatitude": 23.12919,
+                    "gpsLongitude": 113.40359,
+                    "keyword": ""
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "请求成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.currDate",
+                        1605787107761
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787123103",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "525daf3b97c0ec1447871bdc414d89c2"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787123120",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "caab48c39cf154da37408a9ee33ecf76"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787123120",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "caab48c39cf154da37408a9ee33ecf76"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "categoryExtendCode": null,
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getCategoryExtendList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787123103",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "525daf3b97c0ec1447871bdc414d89c2"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787127144",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "1367a93aa86474c3b84291a777f2eb61"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/common/getPrdListByCategoryExtend",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787127144",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "1367a93aa86474c3b84291a777f2eb61"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "categoryExtendCode": "DL070144",
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/saveStorePlan",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/saveStorePlan",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787181294",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "51fb53590cf05109963ed9de4112fe70"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/saveStorePlan",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/saveStorePlan",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787181294",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "51fb53590cf05109963ed9de4112fe70"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16",
+                    "planType": 1,
+                    "planDate": 1605715200000,
+                    "storeNo": "0002662482",
+                    "storeName": "骞垮窞-鏄嗕粦濂藉-澧炲煄浠欐潙姘歌揪搴�",
+                    "startTime": 43080000,
+                    "endTime": 43080000,
+                    "pageType": "",
+                    "storePlanDetail": {
+                        "prdDisplayList": [
+                            {
+                                "depthNum": 12,
+                                "widthNum": 12,
+                                "prdId": "10000014",
+                                "prdName": "500g娲佸噣鐡�-鑷劧"
+                            },
+                            {
+                                "depthNum": 34,
+                                "widthNum": 13,
+                                "prdId": "10001394",
+                                "prdName": "500g鑺﹁崯琚�(鏂�)"
+                            }
+                        ],
+                        "zengTeChenList": [
+                            {
+                                "displayType": "1",
+                                "startTime": 1605715200000,
+                                "endTime": 1605715200000,
+                                "prdList": [
+                                    {
+                                        "prdId": "10000014",
+                                        "prdName": "500g娲佸噣鐡�-鑷劧"
+                                    },
+                                    {
+                                        "prdId": "10001394",
+                                        "prdName": "500g鑺﹁崯琚�(鏂�)"
+                                    }
+                                ],
+                                "displayNum": 12,
+                                "displayPartNum": null,
+                                "displayArea": 23,
+                                "displayDesc": "鍫嗗ご"
+                            }
+                        ],
+                        "distributionList": [],
+                        "orderList": []
+                    }
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.data",
+                        true
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787181611",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "f1094ae897a966b7b44b683983c27691"
+                },
+                "method": "OPTIONS",
+                "headers": {
+                    "Access-Control-Request-Method": "POST",
+                    "Access-Control-Request-Headers": "content-type",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        204
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+            "request": {
+                "url": "https://alpha.bluemoon.com.cn/bmcrm-sfa-refactoring/openapi/kaCheckin/queryStorePlanList",
+                "params": {
+                    "client": "wx",
+                    "cuid": "123",
+                    "format": "json",
+                    "time": "1605787181611",
+                    "version": "1.0.0",
+                    "source": "sfa",
+                    "sign": "f1094ae897a966b7b44b683983c27691"
+                },
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 bluemoon/sfa"
+                },
+                "json": {
+                    "token": "8907ba76ceaffda4b7ded9623d00bd16",
+                    "planDate": 1605715200000,
+                    "channel": 1,
+                    "applicantId": null
+                }
+            },
+            "validate": [
+                {
+                    "eq": [
+                        "status_code",
+                        200
+                    ]
+                },
+                {
+                    "eq": [
+                        "headers.Content-Type",
+                        "application/json;charset=UTF-8"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseCode",
+                        0
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.responseMsg",
+                        "成功"
+                    ]
+                },
+                {
+                    "eq": [
+                        "content.isSuccess",
+                        true
+                    ]
+                }
+            ]
+        }
+    ]
+}

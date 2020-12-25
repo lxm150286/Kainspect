@@ -1,0 +1,19 @@
+name: 经理提交审核计划
+request:
+  headers: ${get_request_params(get_headers)} #引用钩子函数定义的函数
+  json:
+    token: ${token}
+    planId: ${planId}
+    planStatus: 2 #1待审核 2审核通过  3 审核不通过
+    approveRemarks: ""
+  method: POST
+  params:
+    ${get_request_params(get_params)}
+  url: ${ENV(a_host)}/bmcrm-sfa-refactoring/openapi/kaCheckin/audit/auditPlanByManager
+validate:
+    - eq:
+        - content.responseCode
+        - 0
+    - eq:
+        - content.isSuccess
+        - true

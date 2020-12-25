@@ -1,0 +1,17 @@
+name: 登录接口
+request:
+     headers: ${get_request_params(get_headers)} #引用钩子函数定义的函数
+     json:
+       account: ${account}
+       deviceNum: e8d2df7e3b88b1e30fbdbd8c05fdbd7c
+       password: ${password}
+     method: POST
+     params:
+       ${get_request_params(get_params)}
+     url: /bmcrm-control/user/ssoLogin
+validate:
+    - eq:
+      - status_code
+      - 200
+
+

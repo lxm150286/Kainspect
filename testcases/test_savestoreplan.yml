@@ -1,0 +1,20 @@
+config:
+    name: 客户录制门店计划
+    variables:
+        account: '54260644'  #需要指名引用变量$account
+        password: p7Gx4TKqh5quPqjTlU+csw==
+        a_url: https://alpha.bluemoon.com.cn
+        token: ${get_token()}
+    base_url: https://tmallapi.bluemoon.com.cn
+    verify: false
+teststeps:
+
+-   name: 保存门店计划
+    api: api/member/savestoreplan.yml
+    validate:
+        - eq:
+            - content.responseCode
+            - 0
+        - eq:
+            - content.responseMsg
+            - 成功

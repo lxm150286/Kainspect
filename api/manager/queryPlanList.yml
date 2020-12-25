@@ -1,0 +1,10 @@
+name: 客户经理审核列表
+request:
+  headers: ${get_request_params(get_headers)}
+  json:
+    token: ${token}
+    planDate: ${get_currenttemp()}
+  method: POST
+  params:
+    ${get_request_params(get_params)}
+  url: ${ENV(t_host)}/bmcrm-sfa-refactoring/openapi/kaCheckin/audit/queryPlanListByManager

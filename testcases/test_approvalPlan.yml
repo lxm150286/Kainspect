@@ -1,0 +1,41 @@
+config:
+    name: 经理-审批巡检计划
+    variables:
+        account: '80541990'
+        password: p7Gx4TKqh5quPqjTlU+csw==
+        a_url: https://alpha.bluemoon.com.cn
+        channel: ${getlistvalue_bykey(manager[channel])}
+        applicantId: ${getlistvalue_bykey('manager[applicantId]'}
+        token: ${get_token(80541990)}
+    base_url: https://tmallapi.bluemoon.com.cn #不需要指名引用变量$base_url，可以直接被引用
+    export:
+        - planId
+        - channel
+        - applicantId
+        - token
+    verify: false
+teststeps:
+-   name: 获取用户菜单权限
+    api: api/common/menupermissions.yml
+-   name: 客户经理审核列表
+    api: api/manager/queryPlanList.yml
+-   name: 客户经理指定主任审批
+    api: api/manager/approvalPlan.yml
+    validate:
+        - eq:
+              - status_code
+              - 200
+        - eq:
+              - content.responseCode
+              - 0
+-   name: 客户经理审核指定的巡检计划
+    api: api/manager/approvalPlandetail.yml
+    validate:
+        - eq:
+              - status_code
+              - 200
+        - eq:
+              - content.responseCode
+              - 0
+-   name: 经理提交巡检计划
+    testcase: testcases/test_auditPlan.yml

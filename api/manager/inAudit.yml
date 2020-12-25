@@ -1,0 +1,18 @@
+name: 调用该接口才能进行提交审核计划接口
+request:
+  headers: ${get_request_params(get_headers)} #引用钩子函数定义的函数
+  json:
+    token: ${token}
+    planId: ${planId}
+
+  method: POST
+  params:
+    ${get_request_params(get_params)}
+  url: ${ENV(a_host)}/bmcrm-sfa-refactoring/openapi/kaCheckin/audit/inAudit
+validate:
+    - eq:
+        - content.responseCode
+        - 0
+    - eq:
+        - content.isSuccess
+        - true

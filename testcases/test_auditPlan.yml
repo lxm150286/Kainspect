@@ -1,0 +1,11 @@
+config:
+    name: 经理审批某个计划的细节
+    variables: {}
+    verify: false
+teststeps:
+   - name:
+     api: api/manager/auditStatus.yml
+   - name:
+     api: api/manager/inAudit.yml
+   - name:
+     api: api/manager/auditPlan.yml
